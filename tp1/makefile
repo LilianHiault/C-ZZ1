@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = -g -Wall -Wextra -Wdeclaration-after-statement -Werror=vla
+FLAGS = -g -Wall -Wextra -Wdeclaration-after-statement -Werror=vla -lm
 OBJETS = sudoku.o
 
 all:sudoku
