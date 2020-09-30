@@ -1,4 +1,4 @@
-NOM = echange
+NOM = alloc
 CC = gcc
 CFLAGS = -g -Wall -Wextra -Wdeclaration-after-statement -Werror=vla
 LDFLAGS = -lm
