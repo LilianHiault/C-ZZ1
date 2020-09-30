@@ -140,11 +140,13 @@ int verifierLigneColonne(int num, char sens[], int grille[][N])
   for(i=0; i<N; i++) ligneColonne[i] = 0;
   if(strcmp(sens, "HORIZ") == 0)
     {
+      printf("VERIF HORIZ\n");
       // Horizontal
       while(i<N && erreur == 0)
 	{
 	  val = grille[num][i];
 	  ligneColonne[val] ++;
+	  printf("Verif ligne num=%d, i=%d, erreur=%d\n", num, i, erreur);
 	  if(ligneColonne[val] != 1)
 	    {
 	      erreur = 1;
@@ -155,11 +157,13 @@ int verifierLigneColonne(int num, char sens[], int grille[][N])
   else if(strcmp(sens, "VERT") == 0)
     {
       // Vertical
+      printf("VERIF VERT\n");
       while(i<N && erreur == 0)
 	{
 	val = grille[i][num];
 	  ligneColonne[val] ++;
-	  if(ligneColonne[val] != 1)
+	  printf("Verif colonne i=%d, num=%d, erreur=%d\n", i, num, erreur);
+	      if(ligneColonne[val] != 1)
 	    {
 	      erreur = 1;
 	    }
@@ -169,19 +173,20 @@ int verifierLigneColonne(int num, char sens[], int grille[][N])
   else
     {
       erreur = 1;
+      printf("VERIF ERREUR\n");
     }
   return erreur;
 }
 
-int verifierRegion(int k, int l, int grille[][N])
-{
-  return 0;
-}
+/* int verifierRegion(int k, int l, int grille[][N]) */
+/* { */
+/*   return 0; */
+/* } */
 
-int verifierGrille(int grille[][N])
-{
-  return 0;
-}
+/* int verifierGrille(int grille[][N]) */
+/* { */
+/*   return 0; */
+/* } */
 
 int main()
 {
@@ -204,8 +209,8 @@ int main()
       printf("Remplissage : %d\n", remplissage);
       printf("%d\n", verifierLigneColonne(1, "HORIZ", grille));
       afficher(grille);
+      verifierLigneColonne(1, "HORIZ", grille);
     }
   // Vérif victoire
   return 0;
 }
-    
