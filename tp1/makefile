@@ -1,14 +1,15 @@
 CC = gcc
-FLAGS = -g -Wall -Wextra -Wdeclaration-after-statement -Werror=vla -lm
+CFLAGS = -g -Wall -Wextra -Wdeclaration-after-statement -Werror=vla
+LDFLAGS = -lm
 OBJETS = sudoku.o
 
 all:sudoku
 
 sudoku:$(OBJETS)
-	$(CC) $(FLAGS) -o $@ $(OBJETS)
+	$(CC) $(CFLAGS) -o $@ $(OBJETS) $(LDFLAGS)
 
 sudoku.o:sudoku.c
-	$(CC) $(FLAGS) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -f $(OBJETS)
