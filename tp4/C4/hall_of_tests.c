@@ -48,23 +48,23 @@ TEST(Sizeof) {
 }
 
 
-/*
+
 // pas de test mais un exemple simple de manipulation
 TEST(AffichageA) {
-struct donnee essai;
+  struct donnee essai;
 
-strcpy(essai.nom, "2048");
-strcpy(essai.alias, "loic");
-essai.score = 16000;
+  strcpy(essai.nom, "2048");
+  strcpy(essai.alias, "loic");
+  essai.score = 16000;
 
-printf("%s ", essai.nom);
-printf("%s ", essai.alias);
-printf("%d ", essai.score);
+  printf("%s ", essai.nom);
+  printf("%s ", essai.alias);
+  printf("%d ", essai.score);
 
-} */
+}
 
-/*
-  TEST(AffichageB) {
+
+TEST(AffichageB) {
   struct donnee essai;
   strcpy(essai.nom, "pokemon GO");
   strcpy(essai.alias, "loic");
@@ -81,10 +81,10 @@ printf("%d ", essai.score);
   fclose(file);
 
   CHECK( 0 == strcmp(buffer, "pokemon GO : loic avec 498\n") );
-  }*/
+}
 
-/*
-  TEST(AffichageC) {
+
+TEST(AffichageC) {
   donnee_t essai;
   strcpy(essai.nom, "overwatch");
   strcpy(essai.alias, "loic");
@@ -101,10 +101,10 @@ printf("%d ", essai.score);
   fclose(file);
 
   CHECK( 0 == strcmp(buffer, "overwatch : loic avec 2300\n") );
-  } */
+}
 
-/*
-  TEST(Saisie) {
+
+TEST(Saisie) {
   struct donnee essai;
   char buffer[1024];
   strcpy(buffer, "rien\ndutout\n10");
@@ -119,10 +119,10 @@ printf("%d ", essai.score);
   CHECK(  0 == strcmp(essai.nom, "rien") );
   CHECK(  0 == strcmp(essai.alias, "dutout") );
   CHECK( 10 == essai.score );   
-  } */
+}
 
-/*
-  TEST(lectureFichier) {
+
+TEST(lectureFichier) {
   donnee_t tableau[TAILLE_MAX];
   int taille = 0;
    
@@ -135,13 +135,13 @@ printf("%d ", essai.score);
 
   REQUIRE( 2 == taille );
   CHECK  ( 0 == strcmp(tableau[0].nom, "2048"));
-  CHECK  ( 0 == strcmp(tableau[0].alias, "loic")); // :-)
+  CHECK  ( 0 == strcmp(tableau[0].alias, "kiux")); // :-)
   CHECK  ( 64236 == tableau[0].score );
   CHECK  ( 0 == strcmp(tableau[1].nom, "Minecraft"));
   CHECK  ( 0 == strcmp(tableau[1].alias, "kiux")); 
   CHECK  ( 12304883 == tableau[1].score );
-  }
-*/
+}
+
 
 END_TEST_GROUP(tableau_structure)
 
