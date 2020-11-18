@@ -9,16 +9,20 @@ list_t * creerListe(void)
 
 void afficherListe(list_t * li)
 {
-  if (li != NULL)
+  list_t * c = li;
+  printf("[tête] =>");
+  while(c != NULL)
     {
-      list_t * c = li;
-      while(c->next != NULL)
-	{
-	  printf("%d\n", c->value);
-	}
+      printf(" %d =>", c->value);
+      c = c->next;
     }
-  else
-    {
-      printf("La liste est vide !\n");
-    }
+  printf(" [fin]\n");
+}
+
+void insererListe(list_t ** li, int val)
+{
+  list_t maillon = {val, NULL};
+  maillon.next = *li;
+  *li = &maillon;
+  afficherListe(*li);
 }

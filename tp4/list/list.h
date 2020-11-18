@@ -7,7 +7,11 @@ typedef struct list
   struct list * next;
 } list_t;
 
+/* La tête de la liste contient l'adresse vers le premier élément de la liste.
+   Si la liste est vide la tête contient la valeur NULL. */
+
 list_t * creerListe(void);
 void afficherListe(list_t *);
-  
+void insererListe(list_t **, int);
+
 #endif
