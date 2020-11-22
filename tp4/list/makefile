@@ -23,7 +23,7 @@ prog : $(OBJETS)
 list.o: list.c list.h
 	$(CC) -c list.c $(CFLAGS)
 
-main.o: list.h list.c
+main.o: main.c list.h list.c
 	$(CC) -c main.c $(CFLAGS)
 
 clean:
