@@ -2,8 +2,8 @@
 CC = gcc
 
 # options
-CFLAGS = -Wall -Wextra -Wdeclaration-after-statement -Werror=vla -g
-# `sdl-config --cflags`
+CFLAGS = -Wall -Wextra -g
+# -Wdeclaration-after-statement -Werror=vla `sdl-config --cflags`
 LDFLAGS = -lm -lSDL2 -lSDL2_gfx -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2_net
 # `sdl-config --libs`
 
