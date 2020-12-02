@@ -59,7 +59,7 @@ int main()
 
 
 
-  /* --- INITIALISATION SDL */
+  /* --- INITIALISATION SDL --- */
   
   // Initialisations graphiques
   if ((SDL_INIT_VIDEO) == -1)
