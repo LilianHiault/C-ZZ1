@@ -35,9 +35,11 @@ void inser_debut(liste_t * li, char chaine[255])
   cellule_t * element = (cellule_t*)malloc(sizeof(cellule_t));
   if (element != NULL)
     {
+      // Remplir les champs de l'élément
       strcpy(element->ligne, chaine);
       element->suiv = li->tete;
       
+      // Insertion
       li->tete = element;
       if (li->fin == NULL)
 	{
@@ -48,21 +50,26 @@ void inser_debut(liste_t * li, char chaine[255])
 }
   
 
-void ajout_fin(liste_t * li, char chaine[255])
+void inser_fin(liste_t * li, char chaine[255])
 {
   cellule_t * element = (cellule_t*)malloc(sizeof(cellule_t));
+  /* cellule_t * dernier; */
   if (element != NULL)
     {
-      // Fin de la liste
-      strcpy(element->ligne, chaine); // Remplit les champs de élément      
+      // Remplit les champs de l'élément
+      strcpy(element->ligne, chaine);
       element->suiv = NULL;
 
-      li->fin->suiv = element;
-      li->fin = element;
+      // Insertion
       if (li->tete == NULL)
 	{
 	  li->tete = element;
 	}
+      else
+	{
+	  li->fin->suiv = element;
+	}
+      li->fin = element;
     }
 }
 
@@ -84,27 +91,38 @@ void liberer(liste_t * li)
 }      
   
 
-int main()
+int main(int argc, char * argv[])
 {
   char chaine[255] = "Hello world!";
   liste_t li = {NULL, NULL};
 
-  /* afficher(li); */
-  /* inser_debut(&li, chaine); */
-  /* strcpy(chaine, "Coucou"); */
-  /* inser_debut(&li, chaine); */
-  /* strcpy(chaine, "Fini"); */
-  /* ajout_fin(&li, chaine); */
-  /* afficher(li); */
-
-  while (!feof(stdin))
+  if (argc > 1)
     {
-      printf("Entrez une phrase (C-d pour quitter) :\n");
-      fgets(chaine, 255, stdin);
-      printf("%s\n", chaine);
+      FILE * fichier = fopen(argv[1], "r"); // Ouverture du fichier
+      if (fichier)
+	{
+	  while (!feof(fichier))
+	    {
+	      fgets(chaine, 255, fichier);
+	      if(chaine[0] == '#')
+		{
+		  inser_fin(&li, chaine);
+		}
+	    }
+	  fclose(fichier);
+	}
     }
+  else perror("Le fichier ne peut pas être lu");
+  
+  /* while (!feof(stdin)) */
+  /*   { */
+  /*     printf("Entrez une phrase (C-d pour quitter) :\n"); */
+  /*     fgets(chaine, 255, stdin); */
+  /*     if (!feof(stdin)) inser_fin(&li, chaine); */
+  /*     /\* printf("%s\n", chaine); *\/ */
+  /*   } */
 
-  liberer(&li);
   afficher(li);
+  liberer(&li);
   return 0;
 }
